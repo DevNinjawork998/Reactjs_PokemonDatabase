@@ -50,7 +50,7 @@ const PokemonInfo = ({ name: { english }, base }) => (
           </tr>
         ))}
       </tbody>
-    </table>y
+    </table>
   </div>
 );
 
