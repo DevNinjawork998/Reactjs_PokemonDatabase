@@ -66,6 +66,18 @@ grid-template-columns: 70% 30%;
 grid-column-gap: 1rem;
 `;
 
+const Container = styled.div`
+margin: auto;
+width: 800px;
+padding-top: 1rem';
+`;
+
+const Input = styled.input`
+width: auto;
+font-size: x-large;
+padding: 0.2rem;
+`;
+
 function App() {
   const [filter, filterSet] = React.useState("");
   const [pokemon, pokemonSet] = React.useState([]);
@@ -76,17 +88,11 @@ function App() {
   }, [])
 
   return (
-    <div
-      style={{
-        margin: "auto",
-        width: 800,
-        paddingTop: "1rem",
-      }}
-    >
+    <Container>
       <Title>Pokemon Search</Title>
       <TwoColumnLayout>
         <div>
-          <input
+          <Input
             type="text"
             value={filter}
             onChange={(evt) => filterSet(evt.target.value)}
@@ -111,7 +117,7 @@ function App() {
         </div>
         {selectedPokemon && <PokemonInfo {...selectedPokemon} />}
       </TwoColumnLayout>
-    </div>
+    </Container>
   );
 }
 
