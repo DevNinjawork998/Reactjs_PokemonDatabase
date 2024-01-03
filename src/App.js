@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import "./App.css";
 import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
 
 const PokemonType = PropTypes.shape({
   id: PropTypes.string.isRequired,
@@ -98,7 +99,7 @@ function App() {
             value={filter}
             onChange={(evt) => filterSet(evt.target.value)}
           />
-          <table width="100%">
+          <Table width="100%">
             <tbody>
               {pokemon
                 .filter(({ name: { english } }) =>
@@ -114,7 +115,7 @@ function App() {
                   />
                 ))}
             </tbody>
-          </table>
+          </Table>
         </div>
         {selectedPokemon && <PokemonInfo {...selectedPokemon} />}
       </TwoColumnLayout>
