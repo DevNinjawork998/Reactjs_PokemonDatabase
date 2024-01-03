@@ -4,7 +4,6 @@ import styled from "@emotion/styled";
 import "./App.css";
 import Button from 'react-bootstrap/Button';
 
-
 const PokemonType = PropTypes.shape({
   id: PropTypes.string.isRequired,
   name: PropTypes.shape({
@@ -30,7 +29,7 @@ const PokemonRow = ({ pokemon, onClick }) => (
       <td>{pokemon.name.english}</td>
       <td>{pokemon.type.join(", ")}</td>
       <td>
-        <Button type="button" class="btn btn-dark" onClick={() => onClick(pokemon)}>More Information</Button>
+        <Button variant="info" onClick={() => onClick(pokemon)}>More Information</Button>
       </td>
     </tr>
   </>
