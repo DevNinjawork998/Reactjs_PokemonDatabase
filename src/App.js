@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import styled from "@emotion/styled";
 import "./App.css";
 
 const PokemonType = PropTypes.shape({
@@ -56,6 +56,16 @@ const PokemonInfo = ({ name: { english }, base }) => (
 
 PokemonInfo.propTypes = PokemonType;
 
+const Title = styled.h1`
+  text-align: center;
+}`;
+
+const TwoColumnLayout = styled.div`
+display: grid;
+grid-template-columns: 70% 30%;
+grid-column-gap: 1rem;
+`;
+
 function App() {
   const [filter, filterSet] = React.useState("");
   const [pokemon, pokemonSet] = React.useState([]);
@@ -70,17 +80,11 @@ function App() {
       style={{
         margin: "auto",
         width: 800,
-        paddingTop: "1em",
+        paddingTop: "1rem",
       }}
     >
-      <h1 className="title">Pokemon Search</h1>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "70% 30%",
-          gridColumnGap: "1rem",
-        }}
-      >
+      <Title>Pokemon Search</Title>
+      <TwoColumnLayout>
         <div>
           <input
             type="text"
@@ -106,7 +110,7 @@ function App() {
           </table>
         </div>
         {selectedPokemon && <PokemonInfo {...selectedPokemon} />}
-      </div>
+      </TwoColumnLayout>
     </div>
   );
 }
