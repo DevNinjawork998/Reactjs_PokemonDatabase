@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
+
 import "./App.css";
 
 const PokemonType = PropTypes.shape({
