@@ -77,7 +77,7 @@ function App() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "80% 20%",
+          gridTemplateColumns: "70% 30%",
           gridColumnGap: "1rem",
         }}
       >
