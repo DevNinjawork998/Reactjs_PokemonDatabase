@@ -1,28 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import "./App.css";
-import Button from 'react-bootstrap/Button';
-import Table from 'react-bootstrap/Table';
-
-const PokemonType = PropTypes.shape({
-  id: PropTypes.string.isRequired,
-  name: PropTypes.shape({
-    english: PropTypes.string.isRequired,
-    japanese: PropTypes.string.isRequired,
-    chinese: PropTypes.string.isRequired,
-    french: PropTypes.string.isRequired,
-  }),
-  type: PropTypes.arrayOf(PropTypes.string.isRequired),
-  base: PropTypes.shape({
-    HP: PropTypes.number.isRequired,
-    Attack: PropTypes.number.isRequired,
-    Defense: PropTypes.number.isRequired,
-    "Sp. Attack": PropTypes.number.isRequired,
-    "Sp. Defense": PropTypes.number.isRequired,
-    Speed: PropTypes.number.isRequired,
-  }),
-});
+import { Button, Table } from 'react-bootstrap';
+import MyPagination from './Components/MyPagination';
+import PaginationComponent from "./Components/MyPagination";
 
 const PokemonRow = ({ pokemon, onClick }) => (
   <>
@@ -35,10 +16,6 @@ const PokemonRow = ({ pokemon, onClick }) => (
     </tr>
   </>
 );
-
-PokemonRow.propTypes = {
-  pokemon: PropTypes.arrayOf(PokemonType),
-};
 
 const PokemonInfo = ({ name: { english }, base }) => (
   <div>
@@ -55,8 +32,6 @@ const PokemonInfo = ({ name: { english }, base }) => (
     </table>
   </div>
 );
-
-PokemonInfo.propTypes = PokemonType;
 
 const Title = styled.h1`
   text-align: center;
@@ -108,6 +83,7 @@ class App extends React.Component {
         <TwoColumnLayout>
           <div>
             <Input
+              placeholder="Search"
               value={this.state.filter}
               onChange={(evt) =>
                 this.setState({
@@ -144,6 +120,9 @@ class App extends React.Component {
                     />
                   ))}
               </tbody>
+              <tr>
+                <PaginationComponent>{ }</PaginationComponent>
+              </tr>
             </Table>
           </div>
           {this.state.selectedItem && (
