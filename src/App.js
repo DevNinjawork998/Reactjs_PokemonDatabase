@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 
 import PokemonInfo from "./Components/PokemonInfo.jsx";
@@ -13,9 +13,9 @@ const Title = styled.h1`
 }`;
 
 const TwoColumnLayout = styled.div`
-display: grid;
-grid-template-columns: 70% 30%;
-grid-column-gap: 1rem;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-column-gap: 1rem;
 `;
 
 const PageContainer = styled.div`
