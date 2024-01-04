@@ -11,7 +11,7 @@ const PokemonRow = ({ pokemon, onClick }) => (
       <td>{pokemon.type.join(", ")}</td>
       <td>
         <Button
-          variant="contained"
+          variant="info"
           color="primary"
           onClick={() => onClick(pokemon)}
         >
