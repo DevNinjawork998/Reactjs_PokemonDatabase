@@ -14,6 +14,7 @@ const PokemonFilter = () => {
 
   return (
     <Input
+      placeholder="Search"
       type="text"
       value={filter}
       onChange={(evt) => filterSet(evt.target.value)}
