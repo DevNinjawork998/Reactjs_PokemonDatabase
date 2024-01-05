@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import styled from "@emotion/styled";
 
 import PokemonInfo from "./Components/PokemonInfo.jsx";
@@ -7,6 +8,7 @@ import PokemonFilter from "./Components/PokemonFilter.jsx";
 import PokemonTable from "./Components/PokemonTable.jsx";
 
 import "./App.css";
+import Paginator from "./Components/Pagination.js";
 
 const Title = styled.h1`
   text-align: center;
@@ -20,11 +22,14 @@ const TwoColumnLayout = styled.div`
 
 const PageContainer = styled.div`
   margin: auto;
-  width: 800px;
+  width: 900px;
   padding-top: 1em;
 `;
 
 function App() {
+  const [currentPage, setCurrentPage] = React.useState(1);
+
+  //State Initialisation for Pokemon
   const [filter, filterSet] = React.useState("");
   const [pokemon, pokemonSet] = React.useState(null);
   const [selectedPokemon, selectedPokemonSet] = React.useState(null);
@@ -37,31 +42,37 @@ function App() {
 
   if (!pokemon) {
     return <div>Loading data</div>;
+  } else {
+    return (
+      <PokemonContext.Provider
+        value={{
+          filter,
+          pokemon,
+          filterSet,
+          pokemonSet,
+          selectedPokemon,
+          selectedPokemonSet,
+        }}
+      >
+        <PageContainer>
+          <Title>Pokemon Search</Title>
+          <TwoColumnLayout>
+            <div>
+              <PokemonFilter />
+              <PokemonTable currentPage={currentPage} />
+            </div>
+            <PokemonInfo />
+          </TwoColumnLayout>
+          <Paginator
+            pokemon={pokemon}
+            itemsDisplay={20}
+            setCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          />
+        </PageContainer>
+      </PokemonContext.Provider>
+    );
   }
-
-  return (
-    <PokemonContext.Provider
-      value={{
-        filter,
-        pokemon,
-        filterSet,
-        pokemonSet,
-        selectedPokemon,
-        selectedPokemonSet,
-      }}
-    >
-      <PageContainer>
-        <Title>Pokemon Search</Title>
-        <TwoColumnLayout>
-          <div>
-            <PokemonFilter />
-            <PokemonTable />
-          </div>
-          <PokemonInfo />
-        </TwoColumnLayout>
-      </PageContainer>
-    </PokemonContext.Provider>
-  );
 }
 
 export default App;

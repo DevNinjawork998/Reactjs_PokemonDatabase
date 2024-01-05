@@ -1,18 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Table } from "react-bootstrap";
 
 import PokemonRow from "./PokemonRow";
 import PokemonContext from "../PokemonContext";
-import Paginator from "./Pagination";
 
-function PokemonTable() {
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 20;
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
-
+function PokemonTable({ currentPage }) {
   const { filter, pokemon, selectedPokemonSet } = useContext(PokemonContext);
+
+  //Set itemsDisplay for Pagination
+  const itemsDisplay = 20;
+
+  //Pagination function
+  const lastPostIndex = currentPage * itemsDisplay;
 
   return (
     <Table striped width="100%">
@@ -22,6 +21,7 @@ function PokemonTable() {
             .filter(({ name: { english } }) =>
               english.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
             )
+            .slice(lastPostIndex, lastPostIndex + itemsDisplay)
             .map((pokemon) => (
               <PokemonRow
                 pokemon={pokemon}
@@ -30,18 +30,6 @@ function PokemonTable() {
             ))}
         </tbody>
       </thead>
-      <tr>
-        <Paginator
-          className="pagination-md"
-          totalPages={totalPages}
-          currentPage={currentPage}
-          onPageChange={handlePageChange}
-        />
-        <Paginator.First />
-        <Paginator.Prev />
-        <Paginator.Next />
-        <Paginator.Last />
-      </tr>
     </Table>
   );
 }
