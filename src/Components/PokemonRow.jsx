@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Button } from "react-bootstrap";
-import styled from "@emotion/styled";
 
 import PokemonType from "../PokemonType";
 
