@@ -1,5 +1,6 @@
 import React from "react";
 import Pagination from "react-bootstrap/Pagination";
+import returnPaginationRange from "../Utils/appUtils";
 
 const Paginator = ({ pokemon, itemsDisplay, setCurrentPage, currentPage }) => {
   if (pokemon != null) {
