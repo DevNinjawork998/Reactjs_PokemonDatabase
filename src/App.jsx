@@ -28,7 +28,7 @@ const PageContainer = styled.div`
 function App() {
   // State Initialisation for Pagination
   const [currentPage, setCurrentPage] = React.useState(0);
-  const itemsDisplay = 65;
+  const itemsDisplay = 35;
 
   //State Initialisation for Pokemon
   const [filter, filterSet] = React.useState("");
