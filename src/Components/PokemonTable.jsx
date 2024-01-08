@@ -22,7 +22,7 @@ function PokemonTable({ currentPage }) {
               english.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
             )
             .slice(lastPostIndex, lastPostIndex + itemsDisplay)
-            .map((pokemon +1) => (
+            .map((pokemon) => (
               <PokemonRow
                 pokemon={pokemon}
                 onClick={(pokemon) => selectedPokemonSet(pokemon)}

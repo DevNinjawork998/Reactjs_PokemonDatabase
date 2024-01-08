@@ -1,6 +1,6 @@
 import React from "react";
 import Pagination from "react-bootstrap/Pagination";
-import returnPaginationRange from "../Utils/appUtils";
+// import returnPaginationRange from "../Utils/appUtils";
 
 const Paginator = ({ pokemon, itemsDisplay, setCurrentPage, currentPage }) => {
   if (pokemon != null) {
@@ -25,8 +25,9 @@ const Paginator = ({ pokemon, itemsDisplay, setCurrentPage, currentPage }) => {
           <Pagination.First />
           <Pagination.Prev />
           {pages}
-          <Pagination.Ellipsis />
+          {/* <Pagination.Ellipsis /> */}
           <Pagination.Next />
+          <Pagination.Last />
         </Pagination>
       </div>
     );

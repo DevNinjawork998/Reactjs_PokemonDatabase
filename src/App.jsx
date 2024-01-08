@@ -1,14 +1,13 @@
 import React from "react";
-import { useState } from "react";
 import styled from "@emotion/styled";
 
 import PokemonInfo from "./Components/PokemonInfo.jsx";
-import PokemonContext from "./PokemonContext";
+import PokemonContext from "./PokemonContext.js";
 import PokemonFilter from "./Components/PokemonFilter.jsx";
 import PokemonTable from "./Components/PokemonTable.jsx";
 
 import "./App.css";
-import Paginator from "./Components/Pagination.js";
+import Paginator from "./Components/Pagination.jsx";
 
 const Title = styled.h1`
   text-align: center;
@@ -27,13 +26,17 @@ const PageContainer = styled.div`
 `;
 
 function App() {
-  const [currentPage, setCurrentPage] = React.useState(1);
+  // State Initialisation for Pagination
+  const [currentPage, setCurrentPage] = React.useState(0);
+  //Set itemsDisplay for Pagination
+  const itemsDisplay = 20;
 
   //State Initialisation for Pokemon
   const [filter, filterSet] = React.useState("");
   const [pokemon, pokemonSet] = React.useState(null);
   const [selectedPokemon, selectedPokemonSet] = React.useState(null);
 
+  //Fetching pokemon data from localhost
   React.useEffect(() => {
     fetch("http://localhost:3000/pokemon.json")
       .then((resp) => resp.json())
@@ -66,8 +69,8 @@ function App() {
           <Paginator
             pokemon={pokemon}
             itemsDisplay={20}
-            setCurrentPage={setCurrentPage}
             currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
           />
         </PageContainer>
       </PokemonContext.Provider>
