@@ -7,7 +7,7 @@ const Paginator = ({ pokemon, itemsDisplay, setCurrentPage, currentPage }) => {
     let pages = [];
     let active = currentPage;
 
-    for (let i = 0; i <= Math.ceil(pokemon.length / itemsDisplay); i++) {
+    for (let i = 0; i < Math.ceil(pokemon.length / itemsDisplay); i++) {
       pages.push(
         <Pagination.Item
           key={i}
@@ -22,12 +22,15 @@ const Paginator = ({ pokemon, itemsDisplay, setCurrentPage, currentPage }) => {
     return (
       <div>
         <Pagination>
-          <Pagination.First />
-          <Pagination.Prev />
+          <Pagination.First onClick={() => setCurrentPage(0)} />
+          <Pagination.Prev
+            onClick={() => setCurrentPage(Math.max(currentPage - 1, 0))}
+          />
           {pages}
-          {/* <Pagination.Ellipsis /> */}
-          <Pagination.Next />
-          <Pagination.Last />
+          <Pagination.Next
+            onClick={() => setCurrentPage(Math.min(currentPage + 1))}
+          />
+          <Pagination.Last onClick={() => setCurrentPage(pages.length - 1)} />
         </Pagination>
       </div>
     );

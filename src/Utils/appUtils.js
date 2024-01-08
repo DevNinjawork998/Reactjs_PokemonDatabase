@@ -1,11 +1,6 @@
 import _ from "loadsh";
 
-export const returnPaginationRange = (
-  totalPage,
-  currentPage,
-  limit,
-  siblings
-) => {
+export const returnPaginationRange = (totalPage, currentPage, siblings) => {
   let totalPageNoInmArray = 7 + siblings;
   if (totalPageNoInmArray) {
     return _.range(1, totalPageNoInmArray);

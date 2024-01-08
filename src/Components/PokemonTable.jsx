@@ -4,11 +4,8 @@ import { Table } from "react-bootstrap";
 import PokemonRow from "./PokemonRow";
 import PokemonContext from "../PokemonContext";
 
-function PokemonTable({ currentPage }) {
+function PokemonTable({ currentPage, itemsDisplay }) {
   const { filter, pokemon, selectedPokemonSet } = useContext(PokemonContext);
-
-  //Set itemsDisplay for Pagination
-  const itemsDisplay = 20;
 
   //Pagination function
   const lastPostIndex = currentPage * itemsDisplay;

@@ -28,8 +28,7 @@ const PageContainer = styled.div`
 function App() {
   // State Initialisation for Pagination
   const [currentPage, setCurrentPage] = React.useState(0);
-  //Set itemsDisplay for Pagination
-  const itemsDisplay = 20;
+  const itemsDisplay = 65;
 
   //State Initialisation for Pokemon
   const [filter, filterSet] = React.useState("");
@@ -62,13 +61,16 @@ function App() {
           <TwoColumnLayout>
             <div>
               <PokemonFilter />
-              <PokemonTable currentPage={currentPage} />
+              <PokemonTable
+                currentPage={currentPage}
+                itemsDisplay={itemsDisplay}
+              />
             </div>
             <PokemonInfo />
           </TwoColumnLayout>
           <Paginator
             pokemon={pokemon}
-            itemsDisplay={20}
+            itemsDisplay={itemsDisplay}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
           />
