@@ -21,14 +21,16 @@ const Paginator = ({ pokemon, itemsDisplay, setCurrentPage, currentPage }) => {
 
     return (
       <div>
-        <Pagination>
+        <Pagination className="pagination justify-content-center">
           <Pagination.First onClick={() => setCurrentPage(0)} />
           <Pagination.Prev
             onClick={() => setCurrentPage(Math.max(currentPage - 1, 0))}
           />
           {pages}
           <Pagination.Next
-            onClick={() => setCurrentPage(Math.min(currentPage + 1))}
+            onClick={() =>
+              setCurrentPage(Math.min(currentPage + 1, pages.length - 1))
+            }
           />
           <Pagination.Last onClick={() => setCurrentPage(pages.length - 1)} />
         </Pagination>

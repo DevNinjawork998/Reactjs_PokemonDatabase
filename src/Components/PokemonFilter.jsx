@@ -7,6 +7,7 @@ const Input = styled.input`
   width: 100%;
   padding: 0.2rem;
   font-size: large;
+  padding-bottom: 0.5rem;
 `;
 
 const PokemonFilter = () => {
