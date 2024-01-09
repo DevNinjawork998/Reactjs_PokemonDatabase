@@ -43,42 +43,42 @@ function App() {
       .then((data) => pokemonSet(data));
   }, []);
 
-  if (!pokemon) {
-    return <div>Loading data</div>;
-  } else {
-    return (
-      <PokemonContext.Provider
-        value={{
-          filter,
-          pokemon,
-          filterSet,
-          pokemonSet,
-          selectedPokemon,
-          selectedPokemonSet,
-        }}
-      >
-        <PageContainer>
-          <Title>Pokemon Search</Title>
-          <TwoColumnLayout>
-            <div>
-              <PokemonFilter />
-              <PokemonTable
-                currentPage={currentPage}
-                itemsDisplay={itemsDisplay}
-              />
-            </div>
-            <PokemonInfo />
-          </TwoColumnLayout>
-          <Paginator
-            pokemon={pokemon}
-            itemsDisplay={itemsDisplay}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
-        </PageContainer>
-      </PokemonContext.Provider>
-    );
-  }
+  // if (!pokemon) {
+  //   return <div>Loading data</div>;
+  // } else {
+  return (
+    <PokemonContext.Provider
+      value={{
+        filter,
+        pokemon,
+        filterSet,
+        pokemonSet,
+        selectedPokemon,
+        selectedPokemonSet,
+      }}
+    >
+      <PageContainer>
+        <Title>Pokemon Search</Title>
+        <TwoColumnLayout>
+          <div>
+            <PokemonFilter />
+            <PokemonTable
+              currentPage={currentPage}
+              itemsDisplay={itemsDisplay}
+            />
+          </div>
+          <PokemonInfo />
+        </TwoColumnLayout>
+        <Paginator
+          pokemon={pokemon}
+          itemsDisplay={itemsDisplay}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      </PageContainer>
+    </PokemonContext.Provider>
+  );
 }
+// }
 
 export default App;
