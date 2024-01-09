@@ -13,20 +13,25 @@ function PokemonTable({ currentPage, itemsDisplay }) {
   return (
     <Table striped width="100%">
       <thead>
-        <tbody>
-          {pokemon
-            .filter(({ name: { english } }) =>
-              english.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
-            )
-            .slice(lastPostIndex, lastPostIndex + itemsDisplay)
-            .map((pokemon) => (
-              <PokemonRow
-                pokemon={pokemon}
-                onClick={(pokemon) => selectedPokemonSet(pokemon)}
-              />
-            ))}
-        </tbody>
+        <tr>
+          <th>Pokemon</th>
+          <th>Type</th>
+          <th>More Info</th>
+        </tr>
       </thead>
+      <tbody>
+        {pokemon
+          .filter(({ name: { english } }) =>
+            english.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
+          )
+          .slice(lastPostIndex, lastPostIndex + itemsDisplay)
+          .map((pokemon) => (
+            <PokemonRow
+              pokemon={pokemon}
+              onClick={(pokemon) => selectedPokemonSet(pokemon)}
+            />
+          ))}
+      </tbody>
     </Table>
   );
 }
