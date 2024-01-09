@@ -11,7 +11,7 @@ function PokemonTable({ currentPage, itemsDisplay }) {
   const lastPostIndex = currentPage * itemsDisplay;
 
   return (
-    <Table striped width="100%">
+    <Table striped width="auto">
       <thead>
         <tr>
           <th>Pokemon</th>
