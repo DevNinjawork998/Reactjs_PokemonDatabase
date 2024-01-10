@@ -1,5 +1,5 @@
 {
-  "name": "poekmon-database",
+  "name": "pokemon-database",
   "version": "0.1.0",
   "private": false,
   "dependencies": {
@@ -19,6 +19,7 @@
     "react-dom": "^18.2.0",
     "react-paginate": "^8.2.0",
     "react-scripts": "5.0.1",
+    "redux": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -50,5 +51,10 @@
   "devDependencies": {
     "eslint-config-react": "^1.1.7",
     "eslint-config-react-app": "^7.0.1"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/jack-ooi-bp/Reactjs_Practise.git",
+  "author": "jack.ooi <jack.ooi@bp.com>",
+  "license": "MIT",
+  "description": "This is React.js framework for Pokemon Database"
 }
