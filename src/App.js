@@ -1,6 +1,6 @@
 import React from "react";
 import Styled from "@emotion/styled";
-import { Spinner, Image, Row } from "react-bootstrap";
+import { Spinner, Image } from "react-bootstrap";
 
 //Import components
 import PokemonInfo from "./Components/PokemonInfo.jsx";
