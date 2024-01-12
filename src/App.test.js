@@ -1,9 +1,9 @@
 
-// import { render, screen } from '@testing-library/react';
-// import App from './App.jsx';
+// import { render, screen } from "@testing-library/react";
+// import App from "./App";
 
-// test('render Title', () => {
+// test("renders Pokemon Database", () => {
 //   render(<App />);
-//   const linkElement = screen.getByText("Pokemon Search");
+//   const linkElement = screen.getAllByText(/Pokemon Search/);
 //   expect(linkElement).toBeInTheDocument();
 // });

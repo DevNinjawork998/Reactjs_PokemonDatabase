@@ -11,14 +11,22 @@ const Input = styled.input`
 `;
 
 const PokemonFilter = () => {
-  const { filter, filterSet } = useContext(PokemonContext);
+  const {
+    state: { filter },
+    dispatch,
+  } = useContext(PokemonContext);
 
   return (
     <Input
       placeholder="Search"
       type="text"
       value={filter}
-      onChange={(evt) => filterSet(evt.target.value)}
+      onChange={(evt) =>
+        dispatch({
+          type: "SET_FILTER",
+          payload: evt.target.value,
+        })
+      }
     />
   );
 };

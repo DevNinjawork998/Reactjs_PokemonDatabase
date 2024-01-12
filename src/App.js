@@ -1,5 +1,6 @@
 import React from "react";
 import Styled from "@emotion/styled";
+import { Spinner, Image, Row } from "react-bootstrap";
 
 //Import components
 import PokemonInfo from "./Components/PokemonInfo.jsx";
@@ -11,7 +12,7 @@ import Paginator from "./Components/Pagination.jsx";
 import "./App.css";
 
 const Title = Styled.h1`
-  text-align: center;
+text-align: center;
 }`;
 
 const TwoColumnLayout = Styled.div`
@@ -31,34 +32,71 @@ function App() {
   const [currentPage, setCurrentPage] = React.useState(0);
   const itemsDisplay = 40;
 
+  // Use Reducer for Pokemon Context Management.
+  const pokemonReducer = (state, action) => {
+    switch (action.type) {
+      case "SET_FILTER":
+        return {
+          ...state,
+          filter: action.payload,
+        };
+      case "SET_POKEMON":
+        return {
+          ...state,
+          pokemon: action.payload,
+        };
+      case "SET_SELECTED_POKEMON":
+        return {
+          ...state,
+          selectedPokemon: action.payload,
+        };
+      case "SET_CURRENTPAGE":
+        return {
+          ...state,
+          currentPage: action.payload,
+        };
+      default: {
+        throw new Error("No Action");
+      }
+    }
+  };
+
   //State Initialisation for Pokemon
-  const [filter, filterSet] = React.useState("");
-  const [pokemon, pokemonSet] = React.useState(null);
-  const [selectedPokemon, selectedPokemonSet] = React.useState(null);
+  const [state, dispatch] = React.useReducer(pokemonReducer, {
+    filter: "",
+    pokemon: [],
+    selectedPokemon: null,
+    setCurrentPage: null,
+    itemsDisplay: 40,
+    currentPage: 0,
+  });
 
   //Fetching pokemon data from localhost
   React.useEffect(() => {
     fetch("/pokemon.json")
       .then((resp) => resp.json())
-      .then((data) => pokemonSet(data));
+      .then((data) => dispatch({ type: "SET_POKEMON", payload: data }));
   }, []);
 
-  if (!pokemon) {
-    return <div>Loading data</div>;
+  if (!state.pokemon) {
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    );
   } else {
     return (
       <PokemonContext.Provider
         value={{
-          filter,
-          pokemon,
-          filterSet,
-          pokemonSet,
-          selectedPokemon,
-          selectedPokemonSet,
+          state,
+          dispatch,
         }}
       >
         <PageContainer>
-          <Title>Pokemon Search</Title>
+          <div className="d-flex justify-content-center">
+            <Image src="./pikachu.png" height={100}/>
+            <Title>Pokemon Search</Title>
+          </div>
           <TwoColumnLayout>
             <div>
               <PokemonFilter />
@@ -70,7 +108,7 @@ function App() {
             <PokemonInfo />
           </TwoColumnLayout>
           <Paginator
-            pokemon={pokemon}
+            pokemon={state.pokemon}
             itemsDisplay={itemsDisplay}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
@@ -82,3 +120,6 @@ function App() {
 }
 
 export default App;
+
+
+

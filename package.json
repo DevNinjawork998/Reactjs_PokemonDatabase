@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
+    "@coreui/bootstrap-react": "^1.0.0-beta.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@testing-library/jest-dom": "^5.17.0",
