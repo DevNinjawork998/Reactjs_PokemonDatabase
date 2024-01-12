@@ -13,6 +13,8 @@ import "./App.css";
 
 const Title = Styled.h1`
 text-align: center;
+margin-top: 3.0rem
+gap: 5px
 }`;
 
 const TwoColumnLayout = Styled.div`
