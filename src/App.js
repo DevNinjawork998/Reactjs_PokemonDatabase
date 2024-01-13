@@ -2,15 +2,17 @@ import React from "react";
 import Styled from "@emotion/styled";
 import { Spinner, Image } from "react-bootstrap";
 
-//Import components
+//Import Components
 import PokemonInfo from "./Components/PokemonInfo.jsx";
 import PokemonContext from "./PokemonContext.js";
 import PokemonFilter from "./Components/PokemonFilter.jsx";
 import PokemonTable from "./Components/PokemonTable.jsx";
 import Paginator from "./Components/Pagination.jsx";
 
+//Import CSS file
 import "./App.css";
 
+//Styling for App css
 const Title = Styled.h1`
 text-align: Left;
 margin-top: 3.0rem;
