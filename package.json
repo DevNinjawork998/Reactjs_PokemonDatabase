@@ -51,5 +51,9 @@
   "devDependencies": {
     "eslint-config-react": "^1.1.7",
     "eslint-config-react-app": "^7.0.1"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/Ravenslayer998/Reactjs_Practise.git",
+  "author": "Thooi <thooi998@gmail.com>",
+  "license": "MIT"
 }
