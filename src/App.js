@@ -38,7 +38,7 @@ function App() {
 
   //Fetching pokemon data from localhost
   React.useEffect(() => {
-    fetch("http://localhost:3000/pokemon.json")
+    fetch("/pokemon.json")
       .then((resp) => resp.json())
       .then((data) => pokemonSet(data));
   }, []);
