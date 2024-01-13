@@ -12,10 +12,9 @@ import Paginator from "./Components/Pagination.jsx";
 import "./App.css";
 
 const Title = Styled.h1`
-text-align: center;
+text-align: Left;
 margin-top: 3.0rem;
-gap: 5px;
-}`;
+`;
 
 const TwoColumnLayout = Styled.div`
   display: grid;
@@ -95,9 +94,13 @@ function App() {
         }}
       >
         <PageContainer>
-          <div className="d-flex justify-content-center">
-            <Image src="./pikachu.png" height={100}/>
-            <Title>Pokemon Search</Title>
+          <div class="d-flex">
+            <div class="flex-shrink-0">
+              <Image src="./pikachu.png" height={100} />
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <Title>Pokemon Search</Title>
+            </div>
           </div>
           <TwoColumnLayout>
             <div>
