@@ -5,7 +5,10 @@ import PokemonRow from "./PokemonRow";
 import PokemonContext from "../PokemonContext";
 
 function PokemonTable({ currentPage, itemsDisplay }) {
-  const { filter, pokemon, selectedPokemonSet } = useContext(PokemonContext);
+  const {
+    state: { filter, pokemon },
+    dispatch,
+  } = useContext(PokemonContext);
 
   //Pagination function
   const lastPostIndex = currentPage * itemsDisplay;
@@ -28,7 +31,9 @@ function PokemonTable({ currentPage, itemsDisplay }) {
           .map((pokemon) => (
             <PokemonRow
               pokemon={pokemon}
-              onClick={(pokemon) => selectedPokemonSet(pokemon)}
+              onClick={(pokemon) =>
+                dispatch({ type: "SET_SELECTED_POKEMON", payload: pokemon })
+              }
             />
           ))}
       </tbody>
@@ -37,3 +42,4 @@ function PokemonTable({ currentPage, itemsDisplay }) {
 }
 
 export default PokemonTable;
+

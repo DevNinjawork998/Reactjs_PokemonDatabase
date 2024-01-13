@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "dependencies": {
+    "@coreui/bootstrap-react": "^1.0.0-beta.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@testing-library/jest-dom": "^5.17.0",
@@ -53,8 +54,7 @@
     "eslint-config-react-app": "^7.0.1"
   },
   "main": "index.js",
-  "repository": "https://github.com/jack-ooi-bp/Reactjs_Practise.git",
-  "author": "jack.ooi <jack.ooi@bp.com>",
-  "license": "MIT",
-  "description": "This is React.js framework for Pokemon Database"
+  "repository": "https://github.com/Ravenslayer998/Reactjs_Practise.git",
+  "author": "Thooi <thooi998@gmail.com>",
+  "license": "MIT"
 }

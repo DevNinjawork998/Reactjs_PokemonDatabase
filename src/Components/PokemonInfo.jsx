@@ -3,7 +3,9 @@ import Table from "react-bootstrap/Table";
 import PokemonContext from "../PokemonContext";
 
 const PokemonInfo = () => {
-  const { selectedPokemon } = useContext(PokemonContext);
+  const {
+    state: { selectedPokemon },
+  } = useContext(PokemonContext);
 
   return selectedPokemon ? (
     <div>
