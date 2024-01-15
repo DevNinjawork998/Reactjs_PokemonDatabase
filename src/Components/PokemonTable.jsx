@@ -30,6 +30,7 @@ function PokemonTable({ currentPage, itemsDisplay }) {
           .slice(lastPostIndex, lastPostIndex + itemsDisplay)
           .map((pokemon) => (
             <PokemonRow
+              key={pokemon.id}
               pokemon={pokemon}
               onClick={(pokemon) =>
                 dispatch({ type: "SET_SELECTED_POKEMON", payload: pokemon })
@@ -42,4 +43,3 @@ function PokemonTable({ currentPage, itemsDisplay }) {
 }
 
 export default PokemonTable;
-

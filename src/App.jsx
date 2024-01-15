@@ -96,11 +96,11 @@ function App() {
         }}
       >
         <PageContainer>
-          <div class="d-flex">
-            <div class="flex-shrink-0">
+          <div className="d-flex">
+            <div className="flex-shrink-0">
               <Image src="./pikachu.png" height={100} />
             </div>
-            <div class="flex-grow-1 ms-3">
+            <div className="flex-grow-1 ms-3">
               <Title>Pokemon Search</Title>
             </div>
           </div>
@@ -127,6 +127,3 @@ function App() {
 }
 
 export default App;
-
-
-
