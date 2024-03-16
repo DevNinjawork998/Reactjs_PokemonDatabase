@@ -12,6 +12,28 @@ import Paginator from "./Components/Pagination.jsx";
 //Import CSS file
 import "./App.css";
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBKghiJtbL3y0nyjSQ6uNYadZAxliyKxuA",
+  authDomain: "personal-website-3580d.firebaseapp.com",
+  projectId: "personal-website-3580d",
+  storageBucket: "personal-website-3580d.appspot.com",
+  messagingSenderId: "508647798578",
+  appId: "1:508647798578:web:1152f207c7f4657eb0892b",
+  measurementId: "G-CMZX3BP4SV"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 //Styling for App css
 const Title = Styled.h1`
 text-align: Left;
