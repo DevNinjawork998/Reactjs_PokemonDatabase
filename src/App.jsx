@@ -32,6 +32,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+// eslint-disable-next-line no-unused-vars -- Firebase Analytics initializes tracking on load
 const analytics = getAnalytics(app);
 
 //Styling for App css
