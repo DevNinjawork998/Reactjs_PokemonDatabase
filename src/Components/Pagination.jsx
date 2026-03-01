@@ -14,7 +14,7 @@ const Paginator = ({ pokemon, itemsDisplay, setCurrentPage, currentPage }) => {
           onClick={() => setCurrentPage(i)}
         >
           {i + 1}
-        </Pagination.Item>
+        </Pagination.Item>,
       );
     }
 

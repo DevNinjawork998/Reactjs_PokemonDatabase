@@ -12,6 +12,7 @@
     "firebase": "^11.0.2",
     "gh-pages": "^6.2.0",
     "lodash": "^4.17.21",
+    "prettier": "^3.8.1",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.0",
@@ -27,14 +28,26 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write ."
   },
   "eslintConfig": {
-    "extends": ["react-app", "react-app/jest"]
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
-    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
     "eslint": "^8.57.0",
@@ -44,5 +57,13 @@
   "main": "index.js",
   "repository": "https://github.com/Ravenslayer998/Reactjs_Practise.git",
   "author": "Thooi <thooi998@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "overrides": {
+    "serialize-javascript": "7.0.3",
+    "postcss": "^8.4.31",
+    "nth-check": "^2.1.1",
+    "webpack-dev-server": "^5.2.3",
+    "jsonpath": "^1.2.1",
+    "bfj": "^9.1.3"
+  }
 }

@@ -25,7 +25,7 @@ function PokemonTable({ currentPage, itemsDisplay }) {
       <tbody>
         {pokemon
           .filter(({ name: { english } }) =>
-            english.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
+            english.toLocaleLowerCase().includes(filter.toLocaleLowerCase()),
           )
           .slice(lastPostIndex, lastPostIndex + itemsDisplay)
           .map((pokemon) => (
